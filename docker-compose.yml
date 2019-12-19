@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   af-connect-outbox:
     image: "jobtechdev/af-connect-outbox:latest"
@@ -42,7 +42,7 @@ services:
       - "3000:8080"
     environment:
       - HOST=localhost
-      - AF_PORTABILITY_URL=https://af-portability:8080
+      - AF_PORTABILITY_URL=http://af-connect.local:8080
     depends_on:
       - af-connect
       - af-portability
@@ -57,7 +57,6 @@ services:
       - HOST=localhost
       - PKEY=/dist/cert_and_key/privatekey.pem
       - SSLCERT=/dist/cert_and_key/certificate.crt
-
 
   af-connect:
     container_name: "af-connect"
