@@ -1,6 +1,6 @@
 # af-connect-compose
 Docker compose for easy evaluation and development
-Download the docker release package from [af-connect-module](https://github.com/MagnumOpuses/af-connect-module)
+Refere to [af-connect-module](https://github.com/MagnumOpuses/af-connect-module) for more information.
 ## Versions, current dev state and future
 
 1.0.0-beta1
