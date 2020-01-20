@@ -70,5 +70,6 @@ services:
       - SSLCERT=./cert_and_key/certificate.crt
       - HOST=localhost
       - PORTABILITY_URL=http://af-portability:8080
+      - AF_JWT_URL=https://af-connect-mock:9999/jwt/rest/idp/v0/klientID
     depends_on:
       - af-portability
