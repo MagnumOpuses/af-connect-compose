@@ -13,7 +13,7 @@ services:
     image: "jobtechdev/af-portability:latest"
     container_name: "af-portability"
     environment:
-      - SPRING_IDP_URL=https://af-connect-mock:9999/jwt/rest/idp/v0/klientID
+      - SPRING_IDP_URL=http://af-connect-mock:9998/jwt/rest/idp/v0/klientID
       - SPRING_PROFILE_URL=http://af-connect-mock:9998/arbetssokandeprofil/rest/af/v1/arbetssokandeprofil/arbetssokandeprofiler
       - SPRING_KUNDGIFT_URL=http://af-connect-mock:9998/arbetssokande/rest/af/v1/arbetssokande/externa-personuppgifter
       - SPRING_DATASOURCE_URL=jdbc:postgresql://apimanager:5432/apimanager
