@@ -1,9 +1,10 @@
 # af-connect-compose
+
 Docker compose starting all needed mock services for easy evaluation and development refer to [af-connect-module](https://github.com/MagnumOpuses/af-connect-module) for more information.
 
 ## Versions, current dev state and future
 
-1.0.0-beta1
+1.0.0
 
 ## Contributing
 
