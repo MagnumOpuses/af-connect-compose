@@ -5,8 +5,10 @@ services:
     container_name: "af-connect-outbox"
     environment:
       - REDIS_HOST=redis-db
+      - HEALTH_PORT=9802
     ports:
       - "8100:8100"
+      - "9802:9802"
     depends_on:
       - af-connect-redis
   af-portability:
@@ -22,6 +24,7 @@ services:
       - apimanager
     ports:
       - "8080:8080"
+      - "9804:9804"
     depends_on:
       - apimanager
       - af-connect-outbox
@@ -41,8 +44,10 @@ services:
     image: "jobtechdev/af-connect-demo:latest"
     ports:
       - "3000:8080"
+      - "9800:9800"
     environment:
       - HOST=localhost
+      - HEALTH_PORT=9800
       - AF_PORTABILITY_URL=http://af-connect.local:8080
     depends_on:
       - af-connect
@@ -54,21 +59,24 @@ services:
     ports:
       - "9999:9999"
       - "9998:9998"
+      - "9803:9803"
     environment:
       - HOST=localhost
       - PKEY=/dist/cert_and_key/privatekey.pem
       - SSLCERT=/dist/cert_and_key/certificate.crt
-
+      - HEALTH_PORT=9803
   af-connect:
     container_name: "af-connect"
     image: "jobtechdev/af-connect:latest"
     ports:
       - "443:4443"
+      - "9801:9801"
     environment:
       - USE_SSL=true
       - PKEY=./cert_and_key/privatekey.pem
       - SSLCERT=./cert_and_key/certificate.crt
       - HOST=localhost
+      - HEALTH_PORT=9801
       - PORTABILITY_URL=http://af-portability:8080
       - AF_JWT_URL=https://af-connect-mock:9999/jwt/rest/idp/v0/klientID
     depends_on:
