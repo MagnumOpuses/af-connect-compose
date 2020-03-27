@@ -35,6 +35,8 @@ services:
     ports:
       - "5432:5432"
     image: "jobtechdev/apimanager-mock:latest"
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
   af-connect-redis:
     container_name: "redis-db"
     image: "redis:alpine"
